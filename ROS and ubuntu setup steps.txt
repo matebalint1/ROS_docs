@@ -94,6 +94,9 @@ Ubuntu Network Configuration:
 -----------------------------------------------------
 -----------------------------------------------------
 
+robot1 ip: 192.168.1.101
+robot2 ip: 192.168.1.102
+
 1. Checkout Network Config: 
 	ifconfig
 
@@ -108,7 +111,17 @@ sudo nano /etc/hosts
 
 4. Connect to The Robot
 	ssh usename@host
-	
+
+----------------------------------------------------
+----------------------------------------------------
+Visualizing sensor data of robot from laptop:
+
+Make sure robot node is running!
+
+Run on laptop:
+export ROS_MASTER_URI=http://xpc-01:11311
+rosrun rviz rviz 
+
 	
 
 
