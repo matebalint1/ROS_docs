@@ -1,4 +1,3 @@
-
 # Installing ROS
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -59,6 +58,8 @@ source ~/.bashrc
 -------------------------------------------------------
 -------------------------------------------------------
 Run programs:
+-----------------------------------------------------
+-----------------------------------------------------
 
 roslaunch hockeysimulator start_hockey_world.launch
 roslaunch hockeysimulator init_hockey_world.launch
@@ -74,7 +75,8 @@ kill -STOP PID
 -----------------------------------------------------
 -----------------------------------------------------
 Other:
-
+-----------------------------------------------------
+-----------------------------------------------------
 sudo apt install ros-kinetic-libfreenect ros-kinetic-freenect-launch ros-kinetic-freenect-camera 
 
 
@@ -84,3 +86,32 @@ pycharm-community
 sudo apt install python-pip?
 pip install opencv-python?
 pip install --upgrade pip?
+
+
+-----------------------------------------------------
+-----------------------------------------------------
+Ubuntu Network Configuration:
+-----------------------------------------------------
+-----------------------------------------------------
+
+1. Checkout Network Config: 
+	ifconfig
+
+2. Add Host (Respectively "192.168.1.101 	
+	
+sudo nano /etc/hosts
+	ctrl+o =out
+	or
+	Enter then ctrl + x
+3. Send ssh public key to The Robot
+	ssh-copy-id ros@xpc-01
+
+4. Connect to The Robot
+	ssh usename@host
+	
+	
+
+
+
+
+
