@@ -122,6 +122,22 @@ Run on laptop:
 export ROS_MASTER_URI=http://xpc-01:11311
 rosrun rviz rviz 
 
+
+---------------------------------------------------
+---------------------------------------------------
+Running code on robot:
+
+Start robot node
+roslaunch robot robot.launch
+
+Build and start own player node:
+
+cd ~/team2/
+catkin build
+source ~/team2/devel/setup.bash
+
+roslaunch player player.launch use_python:=true
+
 	
 
 
