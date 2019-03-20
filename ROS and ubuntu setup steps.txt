@@ -142,7 +142,8 @@ roslaunch player player.launch use_python:=true
 	
 
 ---------------------
-git reset --hard origin/moving_robot
+To reset the git repo on the robot (destroys all changes on the robot)
+git reset --hard origin/[branch name]
 
 
 
