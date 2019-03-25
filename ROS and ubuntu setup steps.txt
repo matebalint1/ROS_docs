@@ -86,7 +86,10 @@ pycharm-community
 sudo apt install python-pip?
 pip install opencv-python?
 pip install --upgrade pip?
-
+pip install scipy
+sudo apt-get install python-scipy
+pip install scikit-image
+sudo apt-get install python-skimage
 
 -----------------------------------------------------
 -----------------------------------------------------
@@ -140,10 +143,15 @@ source ~/team2/devel/setup.bash
 roslaunch player player.launch use_python:=true
 
 	
-
----------------------
+***************************************************
+---------------------------------------------------
+---------------------------------------------------
+Other useful stuff:
 To reset the git repo on the robot (destroys all changes on the robot)
 git reset --hard origin/[branch name]
+
+rosbag play 2019-03-20-16-05-39_laser_topic.bag /robot1/front_laser/scan:=/scan
+
 
 
 
