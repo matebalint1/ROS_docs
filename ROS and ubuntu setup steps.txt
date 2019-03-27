@@ -114,6 +114,9 @@ sudo nano /etc/hosts
 
 4. Connect to The Robot
 	ssh usename@host
+	or
+	ssh -Y usename@host 
+
 
 ----------------------------------------------------
 ----------------------------------------------------
