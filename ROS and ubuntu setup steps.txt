@@ -106,9 +106,14 @@ robot2 ip: 192.168.1.102
 2. Add Host (Respectively "192.168.1.101 	
 	
 sudo nano /etc/hosts
+add:
+192.168.1.101   xpc-01
+192.168.1.102   xpc-02
+
 	ctrl+o =out
 	or
 	Enter then ctrl + x
+
 3. Send ssh public key to The Robot
 	ssh-copy-id ros@xpc-01
 
@@ -151,6 +156,14 @@ To reset the git repo on the robot (destroys all changes on the robot)
 git reset --hard origin/[branch name]
 
 rosbag play 2019-03-20-16-05-39_laser_topic.bag /robot1/front_laser/scan:=/scan
+
+tmuxinator:
+tmux kill-ses -t team2
+tmuxinator start team2 
+
+rosbag record -a
+
+
 
 
 
