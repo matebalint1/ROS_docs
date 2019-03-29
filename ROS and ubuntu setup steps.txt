@@ -160,6 +160,7 @@ git reset --hard origin/[branch name]
 
 rosbag play 2019-03-20-16-05-39_laser_topic.bag /robot1/front_laser/scan:=/scan
 
+
 tmuxinator:
 tmux kill-ses -t team2
 tmuxinator start team2 
