@@ -78,6 +78,8 @@ Simulating by using only a rosbag:
 ----------------------------------------------------
 roscore
 rosparam set /use_sim_time true
+rosparam get /use_sim_time 
+
 rosbag play -l 2019-04-03-17-18-09.bag --clock
 roslaunch player player.launch 
 
