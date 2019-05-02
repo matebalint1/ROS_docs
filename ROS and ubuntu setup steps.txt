@@ -81,7 +81,7 @@ rosparam set /use_sim_time true
 rosparam get /use_sim_time 
 
 rosbag play -l 2019-04-03-17-18-09.bag --clock
-roslaunch player player.launch 
+roslaunch player xxxxx.launch 
 
 
 -----------------------------------------------------
@@ -180,6 +180,10 @@ tmux kill-ses -t team2
 tmuxinator start team2 
 
 rosbag record -a
+
+# only interestin topics:
+rosbag record /robot1/front_laser/scan /robot1/kinect/depth_registered/points /tf /tf_static /robot1/odom
+
 
 
 
