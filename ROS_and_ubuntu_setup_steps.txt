@@ -1,0 +1,192 @@
+# Installing ROS
+
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+
+sudo apt-get update
+
+sudo apt-get install ros-kinetic-desktop-full
+
+sudo rosdep init
+rosdep update
+
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+
+sudo apt install ros-kinetic-usb-cam ros-kinetic-joy ros-kinetic-teleop-twist-joy ros-kinetic-teleop-twist-keyboard
+
+-------------------------------------------------------
+
+Installed:
+sudo apt install git python-catkin-tools
+sudo apt install python-opencv
+
+-------------------------------------------
+
+ROS workspace:
+
+source /opt/ros/kinetic/setup.bash
+mkdir -p ~/robohockey_ws/src
+cd ~/robohockey_ws/src
+catkin_init_workspace
+
+-------------------------------------------------------
+Git setup:
+
+(in src directory)
+git clone https://rgit.acin.tuwien.ac.at/courses/robohockey/game.git
+//git clone https://rgit.acin.tuwien.ac.at/courses/robohockey/player.git
+
+-------------------------------------------------------
+Compile:
+
+cd ..
+catkin build
+
+
+-------------------------------------------------------
+Source enviroment commands:
+!!!!Important!!!!
+
+echo "source ~/robohockey_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+-------------------------------------------------------
+-------------------------------------------------------
+Run simulator envoronment:
+-----------------------------------------------------
+-----------------------------------------------------
+
+roslaunch hockeysimulator start_hockey_world.launch
+roslaunch hockeysimulator init_hockey_world.launch
+
+roslaunch player player.launch use_python:=true
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py /cmd_vel:=/robot1/cmd_vel
+
+kill -CONT PID
+kill -STOP PID
+
+----------------------------------------------------
+----------------------------------------------------
+Simulating by using only a rosbag:
+----------------------------------------------------
+----------------------------------------------------
+roscore
+rosparam set /use_sim_time true
+rosparam get /use_sim_time 
+
+rosbag play -l 2019-04-03-17-18-09.bag --clock
+roslaunch player xxxxx.launch 
+
+
+-----------------------------------------------------
+-----------------------------------------------------
+Other:
+-----------------------------------------------------
+-----------------------------------------------------
+sudo apt install ros-kinetic-libfreenect ros-kinetic-freenect-launch ros-kinetic-freenect-camera 
+
+
+sudo snap install pycharm-community --classic
+pycharm-community
+
+sudo apt install python-pip?
+pip install opencv-python?
+pip install --upgrade pip?
+pip install scipy
+sudo apt-get install python-scipy
+pip install scikit-image
+sudo apt-get install python-skimage
+
+
+
+-----------------------------------------------------
+-----------------------------------------------------
+Ubuntu Network Configuration:
+-----------------------------------------------------
+-----------------------------------------------------
+
+robot1 ip: 192.168.1.101
+robot2 ip: 192.168.1.102
+
+1. Checkout Network Config: 
+	ifconfig
+
+2. Add Host (Respectively "192.168.1.101 	
+	
+sudo nano /etc/hosts
+add:
+192.168.1.101   xpc-01
+192.168.1.102   xpc-02
+
+	ctrl+o =out
+	or
+	Enter then ctrl + x
+
+3. Send ssh public key to The Robot
+	ssh-copy-id ros@xpc-01
+
+4. Connect to The Robot
+	ssh usename@host
+	or
+	ssh -Y usename@host 
+
+
+----------------------------------------------------
+----------------------------------------------------
+Visualizing sensor data of robot from laptop:
+
+Make sure robot node is running!
+
+Run on laptop:
+export ROS_MASTER_URI=http://xpc-01:11311
+rosrun rviz rviz 
+
+
+---------------------------------------------------
+---------------------------------------------------
+***************************************************
+Running code on robot:
+
+Start robot node
+roslaunch robot robot.launch
+
+Build and start own player node:
+
+cd ~/team2/
+catkin build
+source ~/team2/devel/setup.bash
+
+roslaunch player player.launch use_python:=true
+
+	
+***************************************************
+---------------------------------------------------
+---------------------------------------------------
+Other useful stuff:
+To reset the git repo on the robot (destroys all changes on the robot)
+git reset --hard origin/[branch name]
+
+rosbag play 2019-03-20-16-05-39_laser_topic.bag /robot1/front_laser/scan:=/scan
+
+
+tmuxinator:
+tmux kill-ses -t team2
+tmuxinator start team2 
+
+rosbag record -a
+
+# only interestin topics:
+rosbag record /robot1/front_laser/scan /robot1/kinect/depth_registered/points /tf /tf_static /robot1/odom
+
+
+
+
+
+
+
