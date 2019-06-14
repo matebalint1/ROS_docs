@@ -144,8 +144,10 @@ Visualizing sensor data of robot from laptop:
 Make sure robot node is running!
 
 Run on laptop:
-export ROS_MASTER_URI=http://xpc-01:11311
+export ROS_MASTER_URI=http://xpc-01:11311   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 rosrun rviz rviz 
+rosrun rviz rviz -d ~/.rviz/Robot_data_visualisation.rviz
+
 
 
 ---------------------------------------------------
