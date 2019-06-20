@@ -187,8 +187,9 @@ rosbag record -a
 rosbag record /robot1/front_laser/scan /robot1/kinect/depth_registered/points /tf /tf_static /robot1/odom
 
 
-
-
+// referee stuff:
+export ROS_MASTER_URI=http://localhost:11311
+rosservice call /TeamReady team_name
 
 
 
