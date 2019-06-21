@@ -190,5 +190,10 @@ rosbag record /robot1/front_laser/scan /robot1/kinect/depth_registered/points /t
 
 
 
+export ROS_MASTER_URI=http://192.168.1.170:11311
+
+
+
+
 
 
